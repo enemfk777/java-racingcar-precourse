@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Distance {
 
   private static final int MIN_VALUE = 0;
+  private static final int INCREASE_VALUE = 1;
   private static final String DISTANCE_MUST_NOT_LESS_THAN_MIN_VALUE_FORMAT = "이동 거리가 %d 미만이 될 수 없습니다.";
 
   private final int value;
@@ -18,6 +19,10 @@ public class Distance {
 
   public static Distance initialize() {
     return new Distance(MIN_VALUE);
+  }
+
+  public Distance increase() {
+    return new Distance(value + INCREASE_VALUE);
   }
 
   @Override

@@ -3,6 +3,7 @@ package domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,5 +31,13 @@ class DistanceTest {
     assertThatThrownBy(() -> new Distance(given)).isInstanceOf(IllegalArgumentException.class)
         .hasMessageContaining("이동 거리가 0 미만이 될 수 없습니다.");
   }
+
+  @DisplayName("값 증가는 1씩")
+  @CsvSource(value = {"1,2", "3,4", "100,101"}, delimiter = ',')
+  @ParameterizedTest
+  void increaseByOneTest(int given, int increaseResult) {
+    assertThat(new Distance(given).increase()).isEqualTo(new Distance(increaseResult));
+  }
+
 
 }
