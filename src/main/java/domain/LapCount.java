@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class LapCount {
@@ -28,5 +30,13 @@ public class LapCount {
   @Override
   public int hashCode() {
     return Objects.hash(count);
+  }
+
+  public RacingResult raceEachLaps(RacingCars attendedCars) {
+    List<LapResult> fullResults = new ArrayList<>();
+    for (int index = 0; index < count; index++) {
+      fullResults.add(attendedCars.raceOneLap());
+    }
+    return new RacingResult(fullResults);
   }
 }
