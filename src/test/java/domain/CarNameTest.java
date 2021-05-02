@@ -19,6 +19,7 @@ class CarNameTest {
 
   @DisplayName("빈 문자열이 입력되면 객체 생성 실패")
   @NullAndEmptySource
+  @ValueSource(strings = {" ", "  ", "   ", "    ", "     "})
   @ParameterizedTest
   void constructionFailByNullAndEmptySourceTest(String given) {
     assertThatThrownBy(() -> new CarName(given)).isInstanceOf(IllegalArgumentException.class)
