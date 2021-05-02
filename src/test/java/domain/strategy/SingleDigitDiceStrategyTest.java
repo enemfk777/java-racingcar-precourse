@@ -19,7 +19,7 @@ class SingleDigitDiceStrategyTest {
     SingleDigitDiceStrategy singleDigitDiceStrategy = new SingleDigitDiceStrategy();
 
     Executable[] executables = new Executable[tryEnd];
-    for(int index = tryStart; index < tryEnd; index++) {
+    for (int index = tryStart; index < tryEnd; index++) {
       executables[index] = () -> assertThat(singleDigitDiceStrategy.roll()).isBetween(minDiceValue, maxDiceValue);
     }
 
