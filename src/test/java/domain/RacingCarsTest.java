@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -28,8 +29,8 @@ class RacingCarsTest {
     String three = "three";
     String four = "four";
     String five = "five";
-    FIRST_GIVEN_NAMES = Set.of(one, zero, two);
-    SECOND_GIVEN_NAMES = Set.of(four, three, five);
+    FIRST_GIVEN_NAMES = new LinkedHashSet<>(List.of(one, zero, two));
+    SECOND_GIVEN_NAMES = new LinkedHashSet<>(List.of(four, three, five));
 
     RunResult zeroResult = new RunResult(new CarName(zero), new Distance(1));
     RunResult oneResult = new RunResult(new CarName(one), new Distance(1));
