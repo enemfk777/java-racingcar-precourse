@@ -12,6 +12,14 @@ public class RunResult implements Comparable<RunResult> {
     this.distance = distance;
   }
 
+  public CarName getCarName() {
+    return carName;
+  }
+
+  public Distance getDistance() {
+    return distance;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
