@@ -20,7 +20,7 @@ public class CarTest {
 
   @DisplayName("이름이 같아도 이동 전략이 다른 객체는 다른 객체로 취급한다.")
   @Test
-  void shouldEqualNameAndMoveStrategy() {
+  void shouldEqualNameAndMoveStrategyTest() {
     String givenName = "ted";
     MoveStrategy trueStrategy = () -> true;
     MoveStrategy falseStrategy = () -> false;

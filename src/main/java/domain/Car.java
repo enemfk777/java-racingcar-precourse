@@ -17,7 +17,7 @@ public class Car {
   }
 
   public static Car initializeCar(String carName, MoveStrategy moveStrategy) {
-    return new Car(new CarName(carName), moveStrategy, new Distance(0));
+    return new Car(new CarName(carName), moveStrategy, Distance.initialize());
   }
 
   @Override
