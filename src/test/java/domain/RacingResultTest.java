@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,6 +31,12 @@ class RacingResultTest {
   @Test
   void constructionTest() {
     assertThat(new RacingResult(GIVEN_LAP_RESULTS)).isEqualTo(new RacingResult(GIVEN_LAP_RESULTS));
+  }
+
+  @DisplayName("마지막 Lap에서 가장 멀리 위치한 참여자들의 이름을 반환")
+  @Test
+  void getRacingFinalWinnersTest() {
+    assertThat(new RacingResult(GIVEN_LAP_RESULTS).getRacingFinalWinners()).isEqualTo(Set.of(new CarName("two")));
   }
 
 }
