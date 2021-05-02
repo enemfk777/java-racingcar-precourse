@@ -1,6 +1,7 @@
 package domain;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -14,6 +15,12 @@ class DistanceTest {
   @ParameterizedTest
   void constructionTest(int given) {
     assertThat(new Distance(given)).isEqualTo(new Distance(given));
+  }
+
+  @DisplayName("초기화 메서드 리턴값은 0")
+  @Test
+  void initializeTest() {
+    assertThat(Distance.initialize()).isEqualTo(new Distance(0));
   }
 
   @DisplayName("0 미만의 값이 입력되면 객체 생성 실패")

@@ -16,6 +16,10 @@ public class Distance {
     this.value = value;
   }
 
+  public static Distance initialize() {
+    return new Distance(MIN_VALUE);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
