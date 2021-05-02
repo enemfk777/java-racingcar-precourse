@@ -20,6 +20,17 @@ public class Car {
     return new Car(new CarName(carName), moveStrategy, Distance.initialize());
   }
 
+  public RunResult run() {
+    if(moveStrategy.isMovable()) {
+      updateDistance();
+    }
+    return new RunResult(carName, distance);
+  }
+
+  private void updateDistance() {
+    distance = distance.increase();
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
