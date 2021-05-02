@@ -24,6 +24,10 @@ public class ControlTower {
     return RacingCars.fromAttendeeNamesWithMoveStrategy(attendeeNames, MoveStrategy.getDefaultMoveStrategy());
   }
 
+  public RacingResult raceStart() {
+    return lapCount.raceEachLaps(attendedCars);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
