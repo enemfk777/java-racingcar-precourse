@@ -2,7 +2,7 @@ package domain;
 
 import java.util.Objects;
 
-public class RunResult {
+public class RunResult implements Comparable<RunResult> {
 
   private final CarName carName;
   private final Distance distance;
@@ -23,5 +23,10 @@ public class RunResult {
   @Override
   public int hashCode() {
     return Objects.hash(carName, distance);
+  }
+
+  @Override
+  public int compareTo(RunResult o) {
+    return o.distance.compareTo(this.distance);
   }
 }
