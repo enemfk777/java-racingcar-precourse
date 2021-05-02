@@ -14,13 +14,22 @@ public class RacingCars {
     this.cars = cars;
   }
 
-  public static RacingCars fromParticipationNamesWithMoveStrategy(List<String> participationNames, MoveStrategy moveStrategy) {
+  public static RacingCars fromAttendeeNamesWithMoveStrategy(List<String> attendeeNames, MoveStrategy moveStrategy) {
     List<Car> preparedCars = new ArrayList<>();
-    for (String participationName : participationNames) {
-      Car participatedCar = Car.initializeCar(participationName, moveStrategy);
-      preparedCars.add(participatedCar);
+    for (String attendeeName : attendeeNames) {
+      Car attendee = Car.initializeCar(attendeeName, moveStrategy);
+      preparedCars.add(attendee);
     }
     return new RacingCars(preparedCars);
+  }
+
+  public LapResult raceOneLap() {
+    List<RunResult> lapResults = new ArrayList<>();
+    for (Car attendee : cars) {
+      RunResult attendeesResult = attendee.run();
+      lapResults.add(attendeesResult);
+    }
+    return new LapResult(lapResults);
   }
 
   @Override
