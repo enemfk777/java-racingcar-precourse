@@ -1,14 +1,38 @@
 package domain;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class LapResult {
 
-  private final List<RunResult> runResults;
+  private static final int FIRST_INDEX = 0;
 
-  public LapResult(List<RunResult> runResults) {
-    this.runResults = runResults;
+  private final List<RunResult> records;
+  private final Distance lapWinnersDistance;
+
+  public LapResult(List<RunResult> records) {
+    this.records = records;
+    this.lapWinnersDistance = getFirstCarsDistance();
+  }
+
+  public Set<CarName> getLapWinners() {
+    Set<CarName> lapWinnerNames = new LinkedHashSet<>();
+    for (RunResult record : records) {
+      collectWinnerNames(lapWinnerNames, record);
+    }
+    return lapWinnerNames;
+  }
+
+  private void collectWinnerNames(Set<CarName> lapWinnerNames, RunResult record) {
+    if(lapWinnersDistance.equals(record.getDistance())) {
+      lapWinnerNames.add(record.getCarName());
+    }
+  }
+
+  private Distance getFirstCarsDistance() {
+    List<RunResult> toSort = new ArrayList<>(records);
+    Collections.sort(toSort);
+    RunResult firstResult = toSort.get(FIRST_INDEX);
+    return firstResult.getDistance();
   }
 
   @Override
@@ -16,11 +40,11 @@ public class LapResult {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     LapResult lapResult = (LapResult) o;
-    return runResults.equals(lapResult.runResults);
+    return records.equals(lapResult.records);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(runResults);
+    return Objects.hash(records);
   }
 }
