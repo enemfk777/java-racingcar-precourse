@@ -6,28 +6,20 @@ import java.util.*;
 
 public class RacingCars {
 
-  private static final String DUPLICATED_ATTENDEE_NAME = "같은 이름의 참여자가 있습니다. 참여자의 이름은 모두 달라야 합니다.";
-
   private final Set<Car> cars;
 
   private RacingCars(Set<Car> cars) {
     this.cars = cars;
   }
 
-  public static RacingCars fromAttendeeNamesWithMoveStrategy(List<String> attendeeNames, MoveStrategy moveStrategy) {
+  public static RacingCars fromAttendeeNamesWithMoveStrategy(Set<String> attendeeNames, MoveStrategy moveStrategy) {
     Set<Car> preparedCars = new LinkedHashSet<>();
     for (String attendeeName : attendeeNames) {
       Car attendee = Car.initializeCar(attendeeName, moveStrategy);
-      addNonDuplicatedCar(preparedCars, attendee);
+      preparedCars.add(attendee);
     }
     return new RacingCars(preparedCars);
   }
-  private static void addNonDuplicatedCar(Set<Car> preparedCars, Car attendee) {
-    if(!preparedCars.add(attendee)) {
-      throw new IllegalArgumentException(DUPLICATED_ATTENDEE_NAME);
-    }
-  }
-
   public LapResult raceOneLap() {
     List<RunResult> lapResults = new ArrayList<>();
     for (Car attendee : cars) {
