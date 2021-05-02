@@ -23,6 +23,14 @@ public class ParticipationForm {
     this.lapCount = lapCount;
   }
 
+  public Set<String> getAttendeeNames() {
+    return attendeeNames;
+  }
+
+  public int getLapCount() {
+    return lapCount;
+  }
+
   private Set<String> createValidAttendeeNames(String[] attendeeNames) {
     Set<String> attendees = new LinkedHashSet<>();
     for (String attendeeName : attendeeNames) {
