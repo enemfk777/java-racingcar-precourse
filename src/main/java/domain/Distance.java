@@ -4,11 +4,14 @@ import java.util.Objects;
 
 public class Distance {
 
+  private static final int MIN_VALUE = 0;
+  private static final String DISTANCE_MUST_NOT_LESS_THAN_MIN_VALUE_FORMAT = "이동 거리가 %d 미만이 될 수 없습니다.";
+
   private final int value;
 
   public Distance(int value) {
-    if(value < 0) {
-      throw new IllegalArgumentException("이동 거리가 0 미만이 될 수 없습니다.");
+    if(value < MIN_VALUE) {
+      throw new IllegalArgumentException(String.format(DISTANCE_MUST_NOT_LESS_THAN_MIN_VALUE_FORMAT, MIN_VALUE));
     }
     this.value = value;
   }
