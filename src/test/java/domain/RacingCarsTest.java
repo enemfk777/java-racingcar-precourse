@@ -26,8 +26,8 @@ class RacingCarsTest {
     String one = "one";
     String two = "two";
     String three = "three";
-    String four = "one";
-    String five = "one";
+    String four = "four";
+    String five = "five";
     FIRST_GIVEN_NAMES = List.of(one, zero, two);
     SECOND_GIVEN_NAMES = List.of(four, three, five);
 
