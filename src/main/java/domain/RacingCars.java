@@ -2,25 +2,30 @@ package domain;
 
 import domain.strategy.MoveStrategy;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class RacingCars {
 
-  private final List<Car> cars;
+  private static final String DUPLICATED_ATTENDEE_NAME = "같은 이름의 참여자가 있습니다. 참여자의 이름은 모두 달라야 합니다.";
 
-  private RacingCars(List<Car> cars) {
+  private final Set<Car> cars;
+
+  private RacingCars(Set<Car> cars) {
     this.cars = cars;
   }
 
   public static RacingCars fromAttendeeNamesWithMoveStrategy(List<String> attendeeNames, MoveStrategy moveStrategy) {
-    List<Car> preparedCars = new ArrayList<>();
+    Set<Car> preparedCars = new LinkedHashSet<>();
     for (String attendeeName : attendeeNames) {
       Car attendee = Car.initializeCar(attendeeName, moveStrategy);
-      preparedCars.add(attendee);
+      addNonDuplicatedCar(preparedCars, attendee);
     }
     return new RacingCars(preparedCars);
+  }
+  private static void addNonDuplicatedCar(Set<Car> preparedCars, Car attendee) {
+    if(!preparedCars.add(attendee)) {
+      throw new IllegalArgumentException(DUPLICATED_ATTENDEE_NAME);
+    }
   }
 
   public LapResult raceOneLap() {

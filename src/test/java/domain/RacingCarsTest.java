@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 class RacingCarsTest {
@@ -50,6 +51,14 @@ class RacingCarsTest {
     );
   }
 
+  @DisplayName("중복 된 이름의 참가자가 있으면 IllegalArgumentExeption")
+  @Test
+  void constructionFailTest() {
+    List<String> givenAttendee = List.of("dup", "dup", "unique");
+    assertThatThrownBy(() -> RacingCars.fromAttendeeNamesWithMoveStrategy(givenAttendee, ALWAYS_TRUE_STRATEGY)).isInstanceOf(IllegalArgumentException.class)
+                      .hasMessageContaining("같은 이름의 참여자가 있습니다. 참여자의 이름은 모두 달라야 합니다.");
+  }
+
   @DisplayName("raceOneLap 메서드 실행 시 Lap 한바퀴를 끝낸 결과를 참여자 순서대로 정렬된 채 LapResult 객체로 반환")
   @Test
   void raceOneLapTest() {
@@ -59,5 +68,4 @@ class RacingCarsTest {
                             .isNotEqualTo(new LapResult(SECOND_GIVEN_RESULTS))
     );
   }
-
 }
