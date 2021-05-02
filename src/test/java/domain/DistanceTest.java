@@ -6,6 +6,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -37,6 +41,21 @@ class DistanceTest {
   @ParameterizedTest
   void increaseByOneTest(int given, int increaseResult) {
     assertThat(new Distance(given).increase()).isEqualTo(new Distance(increaseResult));
+  }
+
+  @DisplayName("Distance의 compareTo 결과는 오름차순 정렬")
+  @Test
+  void compareToTest() {
+    Distance zero = new Distance(0);
+    Distance one = new Distance(1);
+    Distance two = new Distance(2);
+    List<Distance> distances = new ArrayList<>();
+    distances.add(one);
+    distances.add(zero);
+    distances.add(two);
+
+    Collections.sort(distances);
+    assertThat(distances).containsExactly(zero, one, two);
   }
 
 
