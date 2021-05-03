@@ -46,9 +46,9 @@ class RacingCarsTest {
   @Test
   void constructionTest() {
     assertAll(() -> assertThat(RacingCars.fromAttendeeNamesWithMoveStrategy(FIRST_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY))
-                            .isEqualTo(RacingCars.fromAttendeeNamesWithMoveStrategy(FIRST_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY)),
-              () -> assertThat(RacingCars.fromAttendeeNamesWithMoveStrategy(SECOND_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY))
-                            .isEqualTo(RacingCars.fromAttendeeNamesWithMoveStrategy(SECOND_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY))
+            .isEqualTo(RacingCars.fromAttendeeNamesWithMoveStrategy(FIRST_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY)),
+        () -> assertThat(RacingCars.fromAttendeeNamesWithMoveStrategy(SECOND_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY))
+            .isEqualTo(RacingCars.fromAttendeeNamesWithMoveStrategy(SECOND_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY))
     );
   }
 
@@ -56,9 +56,9 @@ class RacingCarsTest {
   @Test
   void raceOneLapTest() {
     assertAll(() -> assertThat(RacingCars.fromAttendeeNamesWithMoveStrategy(FIRST_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY).raceOneLap())
-                            .isEqualTo(new LapResult(FIRST_GIVEN_RESULTS)),
-              () -> assertThat(RacingCars.fromAttendeeNamesWithMoveStrategy(SECOND_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY).raceOneLap())
-                            .isNotEqualTo(new LapResult(SECOND_GIVEN_RESULTS))
+            .isEqualTo(new LapResult(FIRST_GIVEN_RESULTS)),
+        () -> assertThat(RacingCars.fromAttendeeNamesWithMoveStrategy(SECOND_GIVEN_NAMES, ALWAYS_TRUE_STRATEGY).raceOneLap())
+            .isNotEqualTo(new LapResult(SECOND_GIVEN_RESULTS))
     );
   }
 }
