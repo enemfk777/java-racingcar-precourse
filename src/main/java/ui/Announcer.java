@@ -12,7 +12,8 @@ public class Announcer {
   private static final String FINAL_WINNERS_FORMAT = "%s가 최종 우승했습니다.";
   private static final int FIRST_INDEX = 0;
 
-  private Announcer() {}
+  private Announcer() {
+  }
 
   public static void announcement(AnnouncementSheet announcementSheet) {
     System.out.println(System.lineSeparator());
@@ -37,7 +38,7 @@ public class Announcer {
   }
 
   private static void appendDelimiterIfNotFirstElement(StringBuilder winnersBuilder, int index) {
-    if(index != FIRST_INDEX) {
+    if (index != FIRST_INDEX) {
       winnersBuilder.append(WINNER_NAME_DELIMITER);
     }
   }
