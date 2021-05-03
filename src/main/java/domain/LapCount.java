@@ -13,7 +13,7 @@ public class LapCount {
   private final int count;
 
   public LapCount(int count) {
-    if(count < MIN_VALUE) {
+    if (count < MIN_VALUE) {
       throw new IllegalArgumentException(String.format(LAP_COUNT_MUST_NOT_LESS_THAN_MIN_VALUE_FORMAT, MIN_VALUE));
     }
     this.count = count;
