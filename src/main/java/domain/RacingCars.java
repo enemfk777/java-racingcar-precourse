@@ -20,6 +20,7 @@ public class RacingCars {
     }
     return new RacingCars(preparedCars);
   }
+
   public LapResult raceOneLap() {
     List<RunResult> lapResults = new ArrayList<>();
     for (Car attendee : cars) {
