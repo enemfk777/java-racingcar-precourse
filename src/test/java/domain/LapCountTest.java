@@ -42,7 +42,7 @@ class LapCountTest {
 
 
   @DisplayName("객체 생성 테스트")
-  @ValueSource(ints = {1,2,3,Integer.MAX_VALUE})
+  @ValueSource(ints = {1, 2, 3, Integer.MAX_VALUE})
   @ParameterizedTest
   void constructionTest(int given) {
     assertThat(new LapCount(given)).isEqualTo(new LapCount(given));
@@ -53,7 +53,7 @@ class LapCountTest {
   @ParameterizedTest
   void constructionFailWhenValueLessThanZeroTest(int given) {
     assertThatThrownBy(() -> new LapCount(given)).isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining("시도할 회수(Lap 수)가 1 미만이 될 수 없습니다.");
+        .hasMessageContaining("시도할 회수(Lap 수)가 1 미만이 될 수 없습니다.");
   }
 
   @DisplayName("LapCount 숫자 만큼 Lap 진행 후 RaceResult 반환")
