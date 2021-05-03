@@ -22,7 +22,7 @@ class ParticipationFormTest {
   void constructionFailWhenWrongAttendeeCountTest() {
     String[] wrongAttendees = new String[]{};
     assertThatThrownBy(() -> new ParticipationForm(wrongAttendees, VALID_LAP_COUNT)).isInstanceOf(IllegalArgumentException.class)
-                      .hasMessageContaining("참가 대수의 최소 값은 1입니다. 입력 된 값 : 0");
+        .hasMessageContaining("참가 대수의 최소 값은 1입니다. 입력 된 값 : 0");
   }
 
   @DisplayName("잘못 된 길이의 시도 회수 입력시 IllegalArgumentException")
@@ -30,7 +30,7 @@ class ParticipationFormTest {
   void constructionFailWhenWrongLapCountTest() {
     int wrongLapCount = 0;
     assertThatThrownBy(() -> new ParticipationForm(VALID_NAMES, wrongLapCount)).isInstanceOf(IllegalArgumentException.class)
-                      .hasMessageContaining("시도할 회수의 최소 값은 1입니다. 입력 된 값 : 0");
+        .hasMessageContaining("시도할 회수의 최소 값은 1입니다. 입력 된 값 : 0");
   }
 
   @DisplayName("차량 이름으로 빈 문자열이 들어오면 IllegalArgumentException")
@@ -38,7 +38,7 @@ class ParticipationFormTest {
   void constructionFailWhenBlankNameTest() {
     String[] wrongAttendees = new String[]{" ", "ted"};
     assertThatThrownBy(() -> new ParticipationForm(wrongAttendees, VALID_LAP_COUNT)).isInstanceOf(IllegalArgumentException.class)
-                      .hasMessageContaining("차량 이름이 빈 문자열일 수 없습니다.");
+        .hasMessageContaining("차량 이름이 빈 문자열일 수 없습니다.");
   }
 
   @DisplayName("차량 이름으로 5글자를 초과하는 이름이 들어오면 IllegalArgumentException")
@@ -46,7 +46,7 @@ class ParticipationFormTest {
   void constructionFailWhenNameLengthGreaterThanFiveTest() {
     String[] wrongAttendees = new String[]{"abcdef", "ted"};
     assertThatThrownBy(() -> new ParticipationForm(wrongAttendees, VALID_LAP_COUNT)).isInstanceOf(IllegalArgumentException.class)
-                      .hasMessageContaining("차량 이름은 최대 5자 입니다.");
+        .hasMessageContaining("차량 이름은 최대 5자 입니다.");
   }
 
   @DisplayName("차량 이름으로 중복된 이름이 들어오면 IllegalArgumentException")
@@ -54,6 +54,6 @@ class ParticipationFormTest {
   void constructionFailWhenDuplicateNameTest() {
     String[] wrongAttendees = new String[]{"ted", "ted"};
     assertThatThrownBy(() -> new ParticipationForm(wrongAttendees, VALID_LAP_COUNT)).isInstanceOf(IllegalArgumentException.class)
-                      .hasMessageContaining("같은 이름의 참여자가 있습니다. 참여자의 이름은 모두 달라야 합니다.");
+        .hasMessageContaining("같은 이름의 참여자가 있습니다. 참여자의 이름은 모두 달라야 합니다.");
   }
 }
