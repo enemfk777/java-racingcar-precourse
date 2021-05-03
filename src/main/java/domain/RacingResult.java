@@ -20,6 +20,10 @@ public class RacingResult {
     return lastLapResult.getLapWinners();
   }
 
+  public List<LapResult> getLapResults() {
+    return lapResults;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
