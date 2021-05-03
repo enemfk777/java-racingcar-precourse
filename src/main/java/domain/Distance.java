@@ -25,6 +25,10 @@ public class Distance implements Comparable<Distance> {
     return new Distance(value + INCREASE_VALUE);
   }
 
+  public int getValue() {
+    return value;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
