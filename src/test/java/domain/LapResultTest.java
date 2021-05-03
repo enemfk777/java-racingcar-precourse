@@ -32,7 +32,7 @@ class LapResultTest {
   @Test
   void constructionTest() {
     assertAll(() -> assertThat(new LapResult(FIRST_GIVEN)).isEqualTo(new LapResult(FIRST_GIVEN)),
-              () -> assertThat(new LapResult(SECOND_GIVEN)).isEqualTo(new LapResult(SECOND_GIVEN)));
+        () -> assertThat(new LapResult(SECOND_GIVEN)).isEqualTo(new LapResult(SECOND_GIVEN)));
   }
 
   @DisplayName("현재 Lap의 1등의 이름을 반환한다. 중복 일경우 중복되는 인원 모두 반환한다.")
