@@ -8,7 +8,8 @@ import ui.Reception;
 
 public class Main {
 
-  private Main() {}
+  private Main() {
+  }
 
   public static void main(String[] args) {
     ParticipationForm participationForm = Reception.takeParticipationForm();
