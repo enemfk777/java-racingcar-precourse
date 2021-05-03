@@ -18,6 +18,10 @@ public class CarName {
     this.name = trimName;
   }
 
+  public String getName() {
+    return name;
+  }
+
   private void throwExceptionIfNull(String name) {
     if(name == null) {
       throw new IllegalArgumentException(NAME_MUST_NOT_NULL_AND_EMPTY);
