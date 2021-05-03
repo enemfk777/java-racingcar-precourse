@@ -10,17 +10,19 @@ public class ControlTower {
 
   private final RacingCars attendedCars;
   private final LapCount lapCount;
+
   public ControlTower(ParticipationForm participationForm) {
     this.attendedCars = generateRacingCarsWithDefaultStrategy(participationForm.getAttendeeNames());
     this.lapCount = new LapCount(participationForm.getLapCount());
   }
+
   //For Test Code
   ControlTower(ParticipationForm participationForm, MoveStrategy moveStrategy) {
     this.attendedCars = RacingCars.fromAttendeeNamesWithMoveStrategy(participationForm.getAttendeeNames(), moveStrategy);
     this.lapCount = new LapCount(participationForm.getLapCount());
   }
 
-  private RacingCars generateRacingCarsWithDefaultStrategy(Set<String>attendeeNames) {
+  private RacingCars generateRacingCarsWithDefaultStrategy(Set<String> attendeeNames) {
     return RacingCars.fromAttendeeNamesWithMoveStrategy(attendeeNames, MoveStrategy.getDefaultMoveStrategy());
   }
 
