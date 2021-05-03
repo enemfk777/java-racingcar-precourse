@@ -21,7 +21,7 @@ public class Car {
   }
 
   public RunResult run() {
-    if(moveStrategy.isMovable()) {
+    if (moveStrategy.isMovable()) {
       updateDistance();
     }
     return new RunResult(carName, distance);
