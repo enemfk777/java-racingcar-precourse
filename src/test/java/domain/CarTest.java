@@ -15,7 +15,7 @@ class CarTest {
   @ValueSource(strings = {"ted", "pobi", "crong", "honux"})
   @ParameterizedTest
   void constructionTest(String givenName) {
-    MoveStrategy trueStrategy =  () -> true;
+    MoveStrategy trueStrategy = () -> true;
     assertThat(Car.initializeCar(givenName, trueStrategy)).isEqualTo(Car.initializeCar(givenName, trueStrategy));
   }
 
@@ -30,7 +30,7 @@ class CarTest {
 
   @DisplayName("run 메서드를 실행했을 때 이동 전략 값이 true이면 1만큼 전진, false이면 제자리이다.")
   @ParameterizedTest
-  @CsvSource(value= {"true:1", "false:0"}, delimiter = ':')
+  @CsvSource(value = {"true:1", "false:0"}, delimiter = ':')
   void runTest(boolean movePossibility, int result) {
     String givenName = "ted";
     Car car = Car.initializeCar(givenName, () -> movePossibility);
