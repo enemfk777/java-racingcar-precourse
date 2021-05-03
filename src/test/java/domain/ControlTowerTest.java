@@ -51,7 +51,7 @@ class ControlTowerTest {
   @Test
   void raceStartTest() {
     assertThat(new ControlTower(VALID_PARTICIPATION_FORM, ALWAYS_TRUE_STRATEGY).raceStart())
-            .isEqualTo(GIVEN_RESULTS);
+        .isEqualTo(GIVEN_RESULTS);
   }
 
 
