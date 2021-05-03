@@ -23,19 +23,19 @@ public class CarName {
   }
 
   private void throwExceptionIfNull(String name) {
-    if(name == null) {
+    if (name == null) {
       throw new IllegalArgumentException(NAME_MUST_NOT_NULL_AND_EMPTY);
     }
   }
 
   private void throwExceptionIfEmpty(String name) {
-    if(name.isEmpty()) {
+    if (name.isEmpty()) {
       throw new IllegalArgumentException(NAME_MUST_NOT_NULL_AND_EMPTY);
     }
   }
 
   private void throwExceptionIfLengthGreaterThanMaxLength(String name) {
-    if(name.length() > NAME_MAX_LENGTH) {
+    if (name.length() > NAME_MAX_LENGTH) {
       throw new IllegalArgumentException(String.format(NAME_LENGTH_MUST_LESS_EQUAL_THAN_MAX_LENGTH_FORMAT, NAME_MAX_LENGTH));
     }
   }
