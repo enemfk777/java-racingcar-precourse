@@ -17,7 +17,8 @@ public class Reception {
 
   private static final Scanner SCANNER = new Scanner(System.in);
 
-  private Reception() {}
+  private Reception() {
+  }
 
   public static ParticipationForm takeParticipationForm() {
     String[] attendeeNames = getAttendeeNames();
@@ -30,6 +31,7 @@ public class Reception {
     String input = getStringValue();
     return splitByComma(input);
   }
+
   private static String[] splitByComma(String participationNames) {
     String striped = replaceWhiteSpaces(participationNames);
     return COMMA.split(striped);
