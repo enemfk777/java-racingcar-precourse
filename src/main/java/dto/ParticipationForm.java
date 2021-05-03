@@ -16,6 +16,7 @@ public class ParticipationForm {
 
   private final Set<String> attendeeNames;
   private final int lapCount;
+
   public ParticipationForm(String[] attendeeNames, int lapCount) {
     validateAttendeesCount(attendeeNames);
     validateLapCount(lapCount);
@@ -42,32 +43,32 @@ public class ParticipationForm {
   }
 
   private void validateLapCount(int lapCount) {
-    if(lapCount < MINIMUM_COUNT) {
+    if (lapCount < MINIMUM_COUNT) {
       throw new IllegalArgumentException(String.format(FIELD_MINIMUM_VALUE_NOTIFY_FORMAT, LAP_COUNT_FIELD_NAME, MINIMUM_COUNT, lapCount));
     }
   }
 
   private void addNotDuplicatedName(Set<String> attendees, String attendeeName) {
-    if(!attendees.add(attendeeName)) {
+    if (!attendees.add(attendeeName)) {
       throw new IllegalArgumentException(DUPLICATED_ATTENDEE_NAME);
     }
   }
 
   private void throwExceptionIfNameGreaterThanMaxLength(String attendeeName) {
-    if(attendeeName.length() > MAX_NAME_LENGTH) {
+    if (attendeeName.length() > MAX_NAME_LENGTH) {
       throw new IllegalArgumentException(String.format(NAME_LENGTH_MUST_LESS_EQUAL_THAN_MAX_LENGTH_FORMAT, MAX_NAME_LENGTH));
     }
   }
 
   private void throwExceptionIfNameIsBlank(String attendeeName) {
-    if(attendeeName.isBlank()) {
+    if (attendeeName.isBlank()) {
       throw new IllegalArgumentException(NAME_MUST_NOT_NULL_AND_EMPTY);
     }
   }
 
   private void validateAttendeesCount(String[] attendeeNames) {
     int inputLength = attendeeNames.length;
-    if(inputLength < MINIMUM_COUNT) {
+    if (inputLength < MINIMUM_COUNT) {
       throw new IllegalArgumentException(String.format(FIELD_MINIMUM_VALUE_NOTIFY_FORMAT, ATTENDEE_COUNT_FIELD_NAME, MINIMUM_COUNT, inputLength));
     }
   }
