@@ -27,7 +27,7 @@ public class LapResult {
   }
 
   private void collectWinnerNames(Set<CarName> lapWinnerNames, RunResult record) {
-    if(lapWinnersDistance.equals(record.getDistance())) {
+    if (lapWinnersDistance.equals(record.getDistance())) {
       lapWinnerNames.add(record.getCarName());
     }
   }
