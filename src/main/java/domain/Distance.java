@@ -11,7 +11,7 @@ public class Distance implements Comparable<Distance> {
   private final int value;
 
   public Distance(int value) {
-    if(value < MIN_VALUE) {
+    if (value < MIN_VALUE) {
       throw new IllegalArgumentException(String.format(DISTANCE_MUST_NOT_LESS_THAN_MIN_VALUE_FORMAT, MIN_VALUE));
     }
     this.value = value;
